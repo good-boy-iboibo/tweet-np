@@ -1,0 +1,67 @@
+<!doctype html>
+<html id="h">
+
+<head>
+    <!-- nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;710&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        html {
+            background-color: hsl(162,30%,21%);
+        }
+        body {
+            height: 100vh;
+            margin: 0;
+        }
+        input {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+
+            padding: 26px 0;
+            width: 128px;
+            border-radius: 7px;
+
+            border: none;
+            background-color: hsl(158, 100%, 30%);
+            color: rgb(255, 255, 255);
+            font-size: 17px;
+            font-family: Nunito;
+            font-weight: bold;
+
+            transition: 64ms;
+        }
+        input:hover {
+            padding: 28px 0;
+            width: 132px;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            color: rgb(18, 18, 18);
+            background-color: rgb(255, 221, 0);
+            transition: 64ms;
+        }
+        input:active {
+            margin-top: 4px;
+            background-color: rgba(230, 199, 0, 1);
+            transition: 64ms;
+        }
+    </style>
+</head>
+
+<body>
+        <input
+            id="b"
+            type="button"
+            value="copy URL"
+            onclick="
+                navigator.clipboard.writeText(location.href);
+                document.getElementById('b').value = 'copied!';
+                document.getElementById('b').style.backgroundColor = 'hsl(188,100%,30%)';
+                document.getElementById('h').style.backgroundColor = 'hsl(192,30%,21%)';
+            "
+        >
+</body>
+
+</html>
