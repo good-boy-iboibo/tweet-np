@@ -8,8 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;710&display=swap" rel="stylesheet">
 
     <style type="text/css">
+
+        * {
+            font-family: Nunito;
+            font-weight: bold;
+        }
         html {
-            background-color: hsl(162,30%,21%);
+            background-color: hsl(162, 30%, 21%);
         }
         body {
             height: 100vh;
@@ -21,22 +26,18 @@
             left: 50%;
             transform: translateY(-50%) translateX(-50%);
 
-            padding: 26px 0;
-            width: 128px;
+            padding: 24px;
             border-radius: 7px;
 
             border: none;
+            font-size: 16px;
             background-color: hsl(158, 100%, 30%);
             color: rgb(255, 255, 255);
-            font-size: 17px;
-            font-family: Nunito;
-            font-weight: bold;
 
             transition: 64ms;
         }
         input:hover {
-            padding: 28px 0;
-            width: 132px;
+            padding: 26px;
             box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
             color: rgb(18, 18, 18);
             background-color: rgb(255, 221, 0);
@@ -47,19 +48,39 @@
             background-color: rgba(230, 199, 0, 1);
             transition: 64ms;
         }
+        p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-136px) translateX(-50%);
+
+            text-align: center;
+            font-size: 19px;
+            color: rgb(255, 221, 0);
+        }
+
     </style>
 </head>
 
-<body>
+<body id='b'>
         <input
-            id="b"
+            id="i"
             type="button"
             value="copy URL"
             onclick="
                 navigator.clipboard.writeText(location.href);
-                document.getElementById('b').value = 'copied!';
-                document.getElementById('b').style.backgroundColor = 'hsl(188,100%,30%)';
+                document.getElementById('i').style.backgroundColor = 'hsl(188,100%,30%)';
                 document.getElementById('h').style.backgroundColor = 'hsl(192,30%,21%)';
+
+                if (document.getElementsByTagName('p').length === 0) {
+
+                    let p = document.createElement('p');
+                    p.appendChild(document.createTextNode('URL copied!'));
+                    p.appendChild(document.createElement('br'));
+                    p.appendChild(document.createTextNode('Then paste it on the console'));
+                    document.getElementById('b').appendChild(p);
+
+                }
             "
         >
 </body>
